@@ -11,7 +11,7 @@ export const routes: Routes = [
             {
 
 
-                path: "category/:categoryName", component: MealsComponent
+                path: "category/:categoryName", component: MealsComponent,
 
             }
             , {
