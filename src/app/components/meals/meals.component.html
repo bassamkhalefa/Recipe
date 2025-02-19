@@ -1,0 +1,39 @@
+<h1 class="text-4xl pt-7">
+    Learn, Cook, Eat Your Food
+</h1>
+<ul class="flex gap-4  mt-7 flex-wrap mb-10">
+
+    @if (categories) {
+    <li routerLink="/category/All"
+        class="px-4 text-center p-1 border-gray-400 border transition-all hover:shadow-xl shadow duration-300  rounded-full hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">
+        ALL</li>
+    @for (c of categories; track $index) {
+
+    <li [routerLink]="['/category',c.strCategory]"
+        class="px-4 text-center p-1 border-gray-400 border transition-all hover:shadow-xl shadow duration-300  rounded-full hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">
+        {{c.strCategory}}</li>
+
+
+
+    }}
+
+</ul>
+
+
+<div class="grid grid-cols-4 gap-7 ">
+    @if (meals) {@for (n of meals; track $index) {
+
+    <div
+        class="meal text-center hover:shadow-xl group  hover:scale-105 duration-300 transition-all bg-white p-12 pb-4  rounded-[35px]">
+        <img [src]="n.strMealThumb"
+            class=" group-hover:rotate-[360deg] duration-700 transition-all rounded-full drop-shadow-xl  -translate-y-15  shadow-2xl"
+            alt="">
+        <h4>{{n.strMeal}}</h4>
+        <button type="button" [routerLink]="['/mealdetails',n.idMeal]"
+            class="text-white bg-emerald-600 font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300  px-8 py-2 rounded-full">View
+            Recipe</button>
+    </div>
+
+
+    }}
+</div>
